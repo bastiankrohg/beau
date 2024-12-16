@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <span className="text-2xl font-bold">BookMe</span>
+            <span className="text-2xl font-bold">Le Beau</span>
             <p className="text-gray-400 text-base">
               Making booking easy and convenient for everyone.
             </p>
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2023 BookMe, Inc. All rights reserved.
+            &copy; 2024 Le Beau, Inc. All rights reserved.
           </p>
         </div>
       </div>
