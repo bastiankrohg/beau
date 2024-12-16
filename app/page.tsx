@@ -6,7 +6,7 @@ export default function Home() {
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <main className="flex flex-col items-center justify-center flex-1 px-4 sm:px-20 text-center">
         <h1 className="text-4xl sm:text-6xl font-bold mb-4">
-          Welcome to <span className="text-blue-600">BookMe</span>
+          Welcome to <span className="text-blue-600">Le Beau</span>
         </h1>
         <p className="text-xl sm:text-2xl mb-8">
           Book your salon or at-home services with ease

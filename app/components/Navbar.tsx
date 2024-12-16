@@ -40,8 +40,9 @@ const Navbar = () => {
               ))}
             </div>
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+          <div className="hidden sm:ml-6 sm:flex sm:items-center space-x-2">
             <Button>Sign In</Button>
+            <Button variant="outline">Sign Up</Button>
           </div>
         </div>
       </div>
