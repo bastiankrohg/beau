@@ -1,0 +1,14 @@
+{
+    "development": {
+      "dialect": "sqlite",
+      "storage": "./lesbeau.db"
+    },
+    "test": {
+      "dialect": "sqlite",
+      "storage": ":memory:"
+    },
+    "production": {
+      "dialect": "sqlite",
+      "storage": "./lesbeau.db"
+    }
+  }
