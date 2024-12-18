@@ -76,9 +76,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
       case 'POST': {
         // Create a new Review
-        const { provider_id, rating, comment } = req.body;
+        const { user_id, provider_id, rating, comment } = req.body;    
         const review = await Review.create({
-          user_id: req.user_id, // From the auth middleware
+          user_id,
           provider_id,
           rating,
           comment,
