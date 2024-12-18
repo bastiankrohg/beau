@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { User } from '../../lib/models/User';
+import { User } from 'lib/models/User';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { authenticate } from '../../lib/middleware/authMiddleware';
+import { authenticate } from 'lib/middleware/authMiddleware';
 
 // Main handler for user operations
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

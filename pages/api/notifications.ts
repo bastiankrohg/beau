@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Notification } from '../../lib/models/Notification';
-import { authenticate } from '../../lib/middleware/authMiddleware'; // Custom middleware for authentication
+import { Notification } from 'lib/models/Notification';
+import { authenticate } from 'lib/middleware/authMiddleware'; // Custom middleware for authentication
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

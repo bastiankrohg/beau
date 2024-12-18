@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Review } from '../../lib/models/Review';
-import { authenticate } from '../../lib/middleware/authMiddleware';
+import { Review } from 'lib/models/Review';
+import { authenticate } from 'lib/middleware/authMiddleware';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

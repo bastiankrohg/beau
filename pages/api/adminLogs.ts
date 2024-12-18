@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AdminLog } from '../../lib/models/AdminLog';
-import { authenticate } from '../../lib/middleware/authMiddleware'; // Authentication middleware
+import { AdminLog } from 'lib/models/AdminLog';
+import { authenticate } from 'lib/middleware/authMiddleware'; // Authentication middleware
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

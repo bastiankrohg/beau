@@ -1,8 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { ServiceProvider } from '../../lib/models/ServiceProvider';
-import { Service } from '../../lib/models/Service';
+import { ServiceProvider } from 'lib/models/ServiceProvider';
+import { Service } from 'lib/models/Service';
 import { Op } from 'sequelize';
-import { authenticate } from '../../lib/middleware/authMiddleware';
+import { authenticate } from 'lib/middleware/authMiddleware';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { method, query, body } = req;
