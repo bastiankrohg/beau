@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Payment } from 'lib/models/Payment'; // Adjust import paths
-import { Booking } from 'lib/models/Booking'; // Adjust import paths
+import { Payment } from 'sequelize/models/Payment'; // Adjust import paths
+import { Booking } from 'sequelize/models/Booking'; // Adjust import paths
 
 // Helper to authenticate and get user_id (mock example; replace with your auth logic)
 const getUserIdFromRequest = (req: NextApiRequest): string | null => {

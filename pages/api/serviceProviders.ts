@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { ServiceProvider } from 'lib/models/ServiceProvider';
-import { Service } from 'lib/models/Service';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
+import { Service } from 'sequelize/models/Service';
 import { Op } from 'sequelize';
 import { authenticate } from 'lib/middleware/authMiddleware';
 

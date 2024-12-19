@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { Service } from 'lib/models/Service';
+import { Service } from 'sequelize/models/Service';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {

@@ -1,6 +1,6 @@
-const { DataTypes } = require('sequelize');
+import { DataTypes } from 'sequelize';
 
-module.exports = {
+export default {
   up: async (queryInterface) => {
     await queryInterface.createTable('Payments', {
       payment_id: {
@@ -44,7 +44,6 @@ module.exports = {
       },
     });
   },
-
   down: async (queryInterface) => {
     await queryInterface.dropTable('Payments');
   },

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { User } from 'lib/models/User';
+import { User } from 'sequelize/models/User';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { authenticate } from 'lib/middleware/authMiddleware';

@@ -35,7 +35,7 @@
     "lib/**/*.tsx", // Include all lib files with JSX
     "tests/**/*.ts", // Include all test files
     "tests/**/*.tsx" // Include all test files with JSX
-  ],
+, "sequelize/db.ts"  ],
   "exclude": [
     "node_modules" // Exclude node_modules folder
   ]

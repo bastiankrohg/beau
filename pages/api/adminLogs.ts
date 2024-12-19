@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AdminLog } from 'lib/models/AdminLog';
+import { AdminLog } from 'sequelize/models/AdminLog';
 import { authenticate } from 'lib/middleware/authMiddleware'; // Authentication middleware
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
