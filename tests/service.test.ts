@@ -76,6 +76,7 @@ describe('Service API', () => {
   it('should fetch all services', async () => {
     const { req, res } = createMocks({
       method: 'GET',
+      headers: { Authorization: `Bearer ${token}` },
     });
 
     await handler(req, res);
@@ -89,6 +90,7 @@ describe('Service API', () => {
   it('should fetch a single service by ID', async () => {
     const { req, res } = createMocks({
       method: 'GET',
+      headers: { Authorization: `Bearer ${token}` },
       query: { id: serviceId },
     });
 

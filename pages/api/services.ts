@@ -1,7 +1,29 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import jwt from 'jsonwebtoken';
 import { Service } from 'sequelize/models/Service';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
+import { User } from 'sequelize/models/User';
+import sequelize from 'sequelize/db';
+import dotenv from 'dotenv';
+dotenv.config();
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { method } = req;
+
+  // Token verification for protected routes
+  if (['POST', 'PUT', 'DELETE'].includes(method || '')) {
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication required' });
+    }
+
+    try {
+      jwt.verify(token, process.env.JWT_SECRET!);
+    } catch (error) {
+      return res.status(401).json({ message: 'Invalid token' });
+    }
+  }
+
   try {
     const { id } = req.query;
 
@@ -75,4 +97,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   } catch (error) {
     return res.status(500).json({ message: 'Error processing request', error });
   }
-}
+};
+
+export default handler;

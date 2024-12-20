@@ -5,7 +5,7 @@ import { Op } from 'sequelize';
 import { authenticate } from 'lib/middleware/authMiddleware';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method, query, body } = req;
+  const { method, query } = req;
 
   try {
     switch (method) {
@@ -19,18 +19,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         }
 
       case 'POST':
-        await authenticate(req, res);
+        if (!(await authenticate(req, res))) return;
         return createServiceProvider(req, res);
 
       case 'PUT':
-        await authenticate(req, res);
+        if (!(await authenticate(req, res))) return;
         if (!query.id) {
           return res.status(400).json({ message: 'ID is required for updating a ServiceProvider.' });
         }
         return updateServiceProvider(req, res, query.id as string);
 
       case 'DELETE':
-        await authenticate(req, res);
+        if (!(await authenticate(req, res))) return;
         if (!query.id) {
           return res.status(400).json({ message: 'ID is required for deleting a ServiceProvider.' });
         }
