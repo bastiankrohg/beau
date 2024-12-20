@@ -1,10 +1,10 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/payments'; // Adjust if your path differs
+import handler from 'pages/api/payments';
+import sequelize from 'sequelize/db';
 import { processPayment } from 'lib/services/stripe';
-import sequelize from 'lib/db';
-import { Booking } from 'lib/models/Booking';
-import { Service } from 'lib/models/Service';
-import { Payment } from 'lib/models/Payment';
+import { Booking } from 'sequelize/models/Booking';
+import { Service } from 'sequelize/models/Service';
+import { Payment } from 'sequelize/models/Payment';
 
 jest.mock('lib/services/stripe'); // Mock Stripe service for integration testing
 

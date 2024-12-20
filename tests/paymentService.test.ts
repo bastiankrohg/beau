@@ -1,7 +1,7 @@
 import { processPayment } from 'lib/services/stripe';
-import { Payment } from 'lib/models/Payment';
-import { Booking } from 'lib/models/Booking';
-import { Service } from 'lib/models/Service';
+import { Payment } from 'sequelize/models/Payment';
+import { Booking } from 'sequelize/models/Booking';
+import { Service } from 'sequelize/models/Service';
 import Stripe from 'stripe';
 
 // Mock Stripe

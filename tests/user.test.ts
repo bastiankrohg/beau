@@ -1,7 +1,7 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/users'; // Adjust the path to your Next.js API handler
-import { User } from 'lib/models/User'; // User model
-import sequelize from 'lib/db'; // Your Sequelize instance
+import handler from 'pages/api/users';
+import { User } from 'sequelize/models/User';
+import sequelize from 'sequelize/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

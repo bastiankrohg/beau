@@ -1,7 +1,7 @@
 import { createMocks } from 'node-mocks-http';
 import handler from 'pages/api/notifications';
-import sequelize from 'lib/db';
-import { User } from 'lib/models/User';
+import sequelize from 'sequelize/db';
+import { User } from 'sequelize/models/User';
 import jwt from 'jsonwebtoken';
 
 interface DecodedToken {

@@ -1,8 +1,8 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/reviews'; // Import the API handler
-import sequelize from 'lib/db';
-import { User } from 'lib/models/User';
-import { ServiceProvider } from 'lib/models/ServiceProvider';
+import handler from 'pages/api/reviews';
+import sequelize from 'sequelize/db';
+import { User } from 'sequelize/models/User';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import jwt from 'jsonwebtoken';
 
 describe('Review API', () => {
@@ -12,7 +12,7 @@ describe('Review API', () => {
 
   beforeAll(async () => {
     // Sync the database
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true }); // Reset database before tests
 
     // Create a test user and service provider
     const user = await User.create({

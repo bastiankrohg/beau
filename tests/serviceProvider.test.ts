@@ -1,10 +1,9 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/serviceProviders'; // Path to your API handler
-import sequelize from 'lib/db';
-import { User } from 'lib/models/User';
-import { ServiceProvider } from 'lib/models/ServiceProvider';
-import { Service } from 'lib/models/Service';
-import { authenticate } from '@lib/middleware/authMiddleware';  
+import handler from 'pages/api/serviceProviders';
+import sequelize from 'sequelize/db';
+import { User } from 'sequelize/models/User';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
+import { Service } from 'sequelize/models/Service';
 import jwt from 'jsonwebtoken';
 
 describe('ServiceProvider API', () => {
@@ -13,7 +12,7 @@ describe('ServiceProvider API', () => {
 
   beforeAll(async () => {
     // Sync the database
-    await sequelize.sync({ force: true });
+    await sequelize.sync({ force: true });  // Reset database before tests
 
     // Create a test user
     const user = await User.create({

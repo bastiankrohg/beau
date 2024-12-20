@@ -1,9 +1,9 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/bookings'; // Import the API handler
-import sequelize from 'lib/db';
-import { User } from 'lib/models/User';
-import { ServiceProvider } from 'lib/models/ServiceProvider';
-import { Service } from 'lib/models/Service';
+import handler from 'pages/api/bookings';
+import sequelize from 'sequelize/db';
+import { User } from 'sequelize/models/User';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
+import { Service } from 'sequelize/models/Service';
 import jwt from 'jsonwebtoken';
 
 describe('Booking API', () => {

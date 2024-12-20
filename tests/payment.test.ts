@@ -1,10 +1,10 @@
 import { createMocks } from 'node-mocks-http';
-import handler from 'pages/api/payments'; // Adjust path if needed
-import sequelize from 'lib/db';
-import { User } from 'lib/models/User';
-import { ServiceProvider } from 'lib/models/ServiceProvider';
-import { Service } from 'lib/models/Service';
-import { Booking } from 'lib/models/Booking';
+import handler from 'pages/api/payments';
+import sequelize from 'sequelize/db';
+import { User } from 'sequelize/models/User';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
+import { Service } from 'sequelize/models/Service';
+import { Booking } from 'sequelize/models/Booking';
 import jwt from 'jsonwebtoken';
 
 describe('Payment API', () => {
