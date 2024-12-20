@@ -5,6 +5,8 @@ import { Service } from 'sequelize/models/Service';
 import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import { User } from 'sequelize/models/User';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('Service API', () => {
   let token: string;

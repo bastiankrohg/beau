@@ -3,6 +3,8 @@ import handler from 'pages/api/notifications';
 import sequelize from 'sequelize/db';
 import { User } from 'sequelize/models/User';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface DecodedToken {
   user_id: string;

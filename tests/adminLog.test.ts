@@ -1,9 +1,10 @@
 import { createMocks } from 'node-mocks-http';
 import handler from 'pages/api/adminLogs';
-import { AdminLog } from 'sequelize/models/AdminLog';
 import sequelize from 'sequelize/db';
 import { User } from 'sequelize/models/User';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('AdminLog API', () => {
   let token: string;

@@ -5,6 +5,8 @@ import { User } from 'sequelize/models/User';
 import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import { Service } from 'sequelize/models/Service';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('Booking API', () => {
   let token: string;

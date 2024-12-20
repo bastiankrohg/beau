@@ -6,7 +6,7 @@ import { authenticate } from 'lib/middleware/authMiddleware';
 
 // Main handler for user operations
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const { method, headers, body } = req;
+  const { method, headers } = req;
 
   switch (method) {
     case 'POST':
@@ -15,15 +15,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ message: 'Invalid operation' });
 
     case 'GET':
-      await authenticate(req, res); // Ensure authenticated for sensitive routes
+      if (!(await authenticate(req, res))) return; // Return if authentication failed
       return getCurrentUser(req, res);
 
     case 'PUT':
-      await authenticate(req, res);
+      if (!(await authenticate(req, res))) return; // Return if authentication failed
       return updateUser(req, res);
 
     case 'DELETE':
-      await authenticate(req, res);
+      if (!(await authenticate(req, res))) return; // Return if authentication failed
       return deleteUser(req, res);
 
     default:

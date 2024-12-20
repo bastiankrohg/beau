@@ -6,6 +6,8 @@ import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import { Service } from 'sequelize/models/Service';
 import { Booking } from 'sequelize/models/Booking';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('Payment API', () => {
   let token: string;

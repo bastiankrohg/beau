@@ -5,6 +5,8 @@ import { processPayment } from 'lib/services/stripe';
 import { Booking } from 'sequelize/models/Booking';
 import { Service } from 'sequelize/models/Service';
 import { Payment } from 'sequelize/models/Payment';
+import dotenv from 'dotenv';
+dotenv.config();
 
 jest.mock('lib/services/stripe'); // Mock Stripe service for integration testing
 

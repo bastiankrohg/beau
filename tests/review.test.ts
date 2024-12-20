@@ -4,6 +4,8 @@ import sequelize from 'sequelize/db';
 import { User } from 'sequelize/models/User';
 import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('Review API', () => {
   let token: string;

@@ -4,6 +4,8 @@ import { User } from 'sequelize/models/User';
 import sequelize from 'sequelize/db';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+dotenv.config();
 
 describe('User API', () => {
   let token: string;
@@ -148,6 +150,25 @@ describe('User API', () => {
 
       await handler(req, res);
 
+      expect(res._getStatusCode()).toBe(401);
+      const data = JSON.parse(res._getData());
+      expect(data.message).toBe('Invalid token.');
+    });
+    it('should return 401 if token is expired', async () => {
+      const expiredToken = jwt.sign(
+        { user_id: userId, role: 'customer' },
+        process.env.JWT_SECRET!,
+        { expiresIn: '1s' } // Token expires immediately
+      );
+      await new Promise((resolve) => setTimeout(resolve, 2000)); // Wait for token to expire
+  
+      const { req, res } = createMocks({
+        method: 'GET',
+        headers: { Authorization: `Bearer ${expiredToken}` },
+      });
+  
+      await handler(req, res);
+  
       expect(res._getStatusCode()).toBe(401);
       const data = JSON.parse(res._getData());
       expect(data.message).toBe('Invalid token.');

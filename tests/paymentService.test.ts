@@ -3,6 +3,8 @@ import { Payment } from 'sequelize/models/Payment';
 import { Booking } from 'sequelize/models/Booking';
 import { Service } from 'sequelize/models/Service';
 import Stripe from 'stripe';
+import dotenv from 'dotenv';
+dotenv.config();
 
 // Mock Stripe
 jest.mock('stripe');
