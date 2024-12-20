@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { Review } from 'sequelize/models/Review';
+import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import { authenticate } from 'lib/middleware/authMiddleware';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -76,7 +77,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       }
       case 'POST': {
         // Create a new Review
-        const { user_id, provider_id, rating, comment } = req.body;    
+        const { provider_id, rating, comment } = req.body;
+        const serviceProvider = await ServiceProvider.findByPk(provider_id);
+        if (!serviceProvider) {
+          return res.status(404).json({ message: 'ServiceProvider not found' });
+        }
+        const user_id = serviceProvider.user_id;
         const review = await Review.create({
           user_id,
           provider_id,

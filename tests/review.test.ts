@@ -5,10 +5,12 @@ import { User } from 'sequelize/models/User';
 import { ServiceProvider } from 'sequelize/models/ServiceProvider';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { use } from 'react';
 dotenv.config();
 
 describe('Review API', () => {
   let token: string;
+  let userId: string;
   let providerId: string;
   let reviewId: string;
 
@@ -24,8 +26,10 @@ describe('Review API', () => {
       role: 'customer',
     });
 
+    userId = user.user_id; 
+
     const provider = await ServiceProvider.create({
-      user_id: user.user_id,
+      user_id: userId,
       certification: true,
       bio: 'Experienced Barber',
       location: 'Downtown',
@@ -47,6 +51,7 @@ describe('Review API', () => {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: {
+        user_id: userId,
         provider_id: providerId,
         rating: 4.5,
         comment: 'Great service!',
@@ -86,6 +91,7 @@ describe('Review API', () => {
     expect(res._getStatusCode()).toBe(200);
     const data = JSON.parse(res._getData());
     expect(Array.isArray(data)).toBe(true);
+    expect(data.length).toBeGreaterThan(0); // Ensure there is at least one review
     expect(data[0].provider_id).toBe(providerId);
   });
 
