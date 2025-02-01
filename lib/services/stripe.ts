@@ -1,7 +1,7 @@
 import Stripe from 'stripe';
-import { Booking } from '../models/Booking';
-import { Service } from '../models/Service';
-import { Payment } from '../models/Payment';
+import { Booking } from '../../sequelize/models/Booking';
+import { Service } from '../../sequelize/models/Service';
+import { Payment } from '../../sequelize/models/Payment';
 
 // Initialize Stripe with your secret key
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
