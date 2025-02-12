@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "components/ui/card"
 export default function About() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8 text-center">About BookMe</h1>
+      <h1 className="text-4xl font-bold mb-8 text-center">About Le Beau</h1>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
