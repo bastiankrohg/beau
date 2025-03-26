@@ -2,11 +2,21 @@
   "compilerOptions": {
     "baseUrl": ".", // Base directory for resolving non-relative modules
     "paths": {
-      "@/*": ["./components/*"], // Example of custom path for components (adjust as needed)
-      "@lib/*": ["./lib/*"],       // Custom path for lib folder
-      "@pages/*": ["./pages/*"]    // Custom path for pages folder
+      "@/*": [
+        "./components/*"
+      ], // Example of custom path for components (adjust as needed)
+      "@lib/*": [
+        "./lib/*"
+      ], // Custom path for lib folder
+      "@pages/*": [
+        "./pages/*"
+      ] // Custom path for pages folder
     },
-    "lib": ["dom", "dom.iterable", "esnext"], // Include necessary JS libraries
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ], // Include necessary JS libraries
     "allowJs": true, // Allow JavaScript files
     "skipLibCheck": true, // Skip type checking of declaration files
     "strict": true, // Enable all strict type-checking options
@@ -22,7 +32,8 @@
       {
         "name": "next" // Next.js TypeScript plugin
       }
-    ]
+    ],
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts", // Include Next.js environment types
@@ -35,7 +46,9 @@
     "lib/**/*.tsx", // Include all lib files with JSX
     "tests/**/*.ts", // Include all test files
     "tests/**/*.tsx" // Include all test files with JSX
-, "sequelize/db.ts"  ],
+    ,
+    "sequelize/db.ts"
+  ],
   "exclude": [
     "node_modules" // Exclude node_modules folder
   ]
