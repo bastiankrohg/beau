@@ -8,6 +8,18 @@ import { initReviewModel } from './models/Review';
 import { initNotificationModel } from './models/Notification';
 import { initAdminLogModel } from './models/AdminLog';
 
+let db: any;
+
+if (process.env.NODE_ENV === 'development') {
+  const sqlite3 = require('sqlite3').verbose();
+  db = new sqlite3.Database('./dev.db'); // or wherever your DB is
+} else {
+  console.warn("SQLite not supported in production. Provide a different DB or mock.");
+  db = null;
+}
+
+export default db;
+
 // Database configuration
 const sequelize = new Sequelize({
   dialect: 'sqlite',
